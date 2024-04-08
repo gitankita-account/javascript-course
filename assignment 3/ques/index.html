@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      
+     
+      // filter out the number without zero
+      
+
+
+
+
+   // Qes 1.  filter out the data that is not divisile by its index
+
+      // let arr = [1, 2, 8, 4, 5, 6]
+      //        //  0, 1, 2, 3, 4, 5
+      // const fil = arr.filter((a, i)=> {
+      //     if(a % i !== 0){
+      //         return a
+      //     }
+      // })
+      // console.log(fil);
+
+      let arr = [1, 2, 8, 4, 5, 6];
+           //    0, 1, 2, 3, 4, 5
+      function fil(a, i) {
+        if (a % i !== 0) {
+          return a;
+        }
+        let filterout = arr.filter(fil);
+        console.log(filterout);
+      }
+      // fil(arr, );//
+
+    //Qes 2.  add 10 with each Element in the array and return in the new array?
+
+    //   let add = arr.map((a, num) =>{
+    //     return a + 10
+    //   })
+    //   console.log(add);
+
+   //Qes 3.  filter out the number that is divisile by 3 and 5 both
+
+    //   let arr2 = [3, 6, 10, 5, 20, 15];
+    //   let div = arr2.filter((a) =>{
+    //     if(a % 3 == 0 && a % 5 == 0){
+    //         return a
+    //     }
+    //   })
+    //   console.log(div);
+     
+  // Qes 5.  multiply each element by 2 in the array and return it into the new array?
+      
+        //  let arr3 = [ 2, 4, 6, 8];
+        //  let multiply = arr3.map((a, num) =>{
+        //    return a * 2
+        //  })
+        //  console.log(multiply);
+   
+
+    </script>
+  </body>
+</html>
