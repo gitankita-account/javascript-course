@@ -63,7 +63,7 @@ function mapFun(a, b) {
 
 const updatedarr = arr.map(mapFun);
 
-console.log(updatedarr);
+// console.log(updatedarr);
 
 // filter -> filter method is used to filter the data from the array. it is also return the updated array
 
@@ -73,12 +73,76 @@ const filteredArr = arr.filter((a, b) => {
   }
 });
 
-console.log(filteredArr);
+// console.log(filteredArr);
 
 // console.log(4%0)
 
 // multiply each element by 2 in the array and return it into the new array
 // add 10 with each element in the array and return in new array
-// filter out the number that is divisble by 3 and 5 both 
+// filter out the number that is divisble by 3 and 5 both
 // filter out the number without zero.
-// find out the data that is not divisble by its index  
+// find out the data that is not divisble by its index
+
+let strArr = ["ankita", "ritesh", "aman", "kamal"];
+//                0         1       2        3
+const slicedData = strArr.slice(1, 4);
+// first element -> start index
+// second element-> last index +1
+// console.log(slicedData);
+
+// const sortedData = arr.sort((a, b) => {
+//   return b - a;
+// });
+// console.log(sortedData);
+
+// const sortedStrData = strArr.sort((a, b) => {
+//   return -a.localeCompare(b);
+// });
+// console.log(sortedStrData);
+
+// forEach -> map and forEach both are same the only reason is forEach can not return any data
+
+// const forEachElem = arr.forEach((a) => {
+//   console.log(a * a);
+// });
+
+// console.log(forEachElem);
+
+// reduce -> reduce method return single output
+// let arr = [4, 3, 6, 3, 7, 8, 10]; // sum of the array 41
+// const sum = strArr.reduce((a, b) => {
+//   return a + " " + b;
+// });
+
+// console.log(sum);
+
+let myname = "Ankita";
+console.log(`my name is ${myname}`);
+
+// a=0 ; 0+4=>a=4
+// a=4 ; 4+3=>a=7
+// a=7 ; 7+6=>a=13
+//a=13
+
+// {
+//   name: "Hello";
+// }
+
+// let arr = [4, 3, 6, 3, 7, 8, 10];
+//            0  1  2  3  4  5   6
+let spliceData = arr.splice(5, 1, 9); // this will return
+// console.log(spliceData,arr);
+
+// let arr = [4, 3, 6, 3, 7, 8, 10];
+
+arr.push(90);
+arr.push(100);
+console.log(arr);
+
+// let arr = [4, 3, 6, 3, 7, 8, 10];
+
+arr.pop(); // remove last
+arr.pop(); // remove second last
+arr.pop(); // remove third last
+// arr.push(100)
+console.log(arr);
