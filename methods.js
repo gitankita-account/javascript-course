@@ -31,5 +31,14 @@ console.log(n1);
 
 // check the input if it is a number or a string?
 // convert string to the number and multiply another number.
-//  inp1='ritesh'
-// inp1='34
+//  inp1='ritesh' ==> this is not a number please input a correct number to multiply.
+// inp1='34'  ==> it can be convert into the number
+
+// 
+ const dt= new Date()
+
+ console.log(dt.getDate(),dt.getHours(),dt.getMinutes(),dt.getSeconds())
+ console.log(dt.getMonth()+1,dt.getUTCFullYear())
+
+ console.log(dt.toISOString())
+ console.log(dt.toLocaleDateString())
