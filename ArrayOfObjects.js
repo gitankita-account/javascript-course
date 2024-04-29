@@ -16,4 +16,29 @@ let arrObj = [
   { emp_id: 5000, emp_name: "Ritesh", emp_addr: "Delhi", emp_salary: 4000000 },
 ]; // json
 
-console.log(arrObj.length);
+// console.log(arrObj.length);
+
+// const user = arrObj.find((a) => {
+//   if (a.emp_id === 2000) {
+//     return a;
+//   }
+// });
+
+// console.log(user);
+
+// includes
+
+// let strInc='Ritesh'
+
+// const isExist=strInc.includes('itea')
+// console.log(isExist);
+
+let arr = [5, 6, 7, 7, 8, 5, 8, 9, 90, 0];
+
+const isExist = arr.includes(90);
+console.log(isExist);
+
+
+const uniqueArr=[... new Set(arr)]
+
+console.log(uniqueArr);
