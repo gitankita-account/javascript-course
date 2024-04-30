@@ -17,16 +17,16 @@ console.log(uppStr, small);
 let insName = strName.concat("titute Noida");
 console.log(insName);
 
-let num = 100+ parseInt("ritesh");
+let num = 100 + parseInt("ritesh");
 // parseFloat()
 console.log(num);
 
-let num1='456'
+let num1 = "456";
 
-let n=Number("ankita")
+let n = Number("ankita");
 console.log(n);
 
-let n1=isNaN(123)
+let n1 = isNaN(123);
 console.log(n1);
 
 // check the input if it is a number or a string?
@@ -34,11 +34,11 @@ console.log(n1);
 //  inp1='ritesh' ==> this is not a number please input a correct number to multiply.
 // inp1='34'  ==> it can be convert into the number
 
-// 
- const dt= new Date()
+//
+const dt = new Date();
 
- console.log(dt.getDate(),dt.getHours(),dt.getMinutes(),dt.getSeconds())
- console.log(dt.getMonth()+1,dt.getUTCFullYear())
+console.log(dt.getDate(), dt.getHours(), dt.getMinutes(), dt.getSeconds());
+console.log(dt.getMonth() + 1, dt.getUTCFullYear());
 
- console.log(dt.toISOString())
- console.log(dt.toLocaleDateString())
+console.log(dt.toISOString());
+console.log(dt.toLocaleDateString());
