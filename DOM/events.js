@@ -61,8 +61,8 @@ formsubmit.addEventListener("submit", submit);
 //  getQuerySelectorAll()
 //  getElementsByTagName()
 
-const handleBlur = (e) => {
-  console.log("blur", e.target.value);
-  if (!e.target.value) {
-  }
+const handleBlur = (event) => {
+  console.log("blur", event.target.value);
+  // if (!e.target.value) {
+  // }
 };
