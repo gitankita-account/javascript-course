@@ -25,12 +25,23 @@ function funA() {
   console.log(a + parentA);
 
   return function funB() {
-    let b = 70;
-    return b;
+    return a;
   };
+  // const n = funB();
+  // console.log(n);
 }
 
-const fun=funA();
+const fun = funA();
 
-fun()
+fun();
 // console.log(val)
+
+// function x() {
+//   let a = 90;
+//   function y() {
+//     console.log(a);
+//   }
+//   y();
+// }
+
+// x();
