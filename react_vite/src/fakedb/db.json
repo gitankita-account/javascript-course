@@ -1,0 +1,32 @@
+[
+  {
+    "emp_id": 10000,
+    "emp_name": "Ankit Kumar",
+    "emp_salary": 1000000,
+    "emp_designation": "Frontend Developer"
+  },
+  {
+    "emp_id": 20000,
+    "emp_name": "Puneet Kumar",
+    "emp_salary": 2000000,
+    "emp_designation": "Backend Developer"
+  },
+  {
+    "emp_id": 30000,
+    "emp_name": "Ankit Kumar",
+    "emp_salary": 1500000,
+    "emp_designation": "Frontend Developer"
+  },
+  {
+    "emp_id": 40000,
+    "emp_name": "Ankita",
+    "emp_salary": 3000000,
+    "emp_designation": "Fullstack Developer"
+  },
+  {
+    "emp_id": 50000,
+    "emp_name": "Ritesh Kumar",
+    "emp_salary": 1000000,
+    "emp_designation": "Fullstack Developer"
+  }
+]
