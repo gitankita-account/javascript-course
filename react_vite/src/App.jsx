@@ -7,6 +7,7 @@ function AppOne() {
   let type = "Un ordered List";
   return (
     <div>
+      <button>New Change</button>
       <h2>This is AppOne Function {type}</h2>
       <ul>
         <li>One</li>
