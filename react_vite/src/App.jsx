@@ -1,8 +1,8 @@
 import "./assets/style/App.css";
-import ArrayDataDisplay from "./components/basic-component/ArrayDataDisplay";
-
+// import ArrayDataDisplay from "./components/basic-component/ArrayDataDisplay";
+// import ParentComponent from "./components/props/ParentComponent";
+import HooksUseState from "./hooks/USE_STATE/HooksUseState";
 function App() {
-  let myname = "Ritesh";
   const dt = new Date();
   let title = "";
 
@@ -29,7 +29,9 @@ function App() {
     <div>
       <h1 style={styleObj}>Good {title}</h1>
 
-      <ArrayDataDisplay />
+      {/* <ArrayDataDisplay />
+      <ParentComponent /> */}
+      <HooksUseState/>
 
       {/* <h2>My name is {myname}</h2> */}
 
