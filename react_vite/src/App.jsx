@@ -1,8 +1,7 @@
 import "./assets/style/App.css";
 import ArrayDataDisplay from "./components/basic-component/ArrayDataDisplay";
-
+import ParentComponent from "./components/props/ParentComponent";
 function App() {
-  let myname = "Ritesh";
   const dt = new Date();
   let title = "";
 
@@ -30,7 +29,7 @@ function App() {
       <h1 style={styleObj}>Good {title}</h1>
 
       <ArrayDataDisplay />
-
+      <ParentComponent />
       {/* <h2>My name is {myname}</h2> */}
 
       {/* <button
