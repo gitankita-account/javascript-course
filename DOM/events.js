@@ -8,6 +8,7 @@ console.log(container);
 let obj = {
   company: "GOOGLE",
 };
+let errorObj = {};
 
 const clickHandler = () => {
   console.log(container[0].style.backgroundColor);
@@ -21,9 +22,13 @@ const clickHandler = () => {
 };
 
 const handleChange = (e) => {
-  console.log(e.target.id, e.target.value);
+  // console.log(e.target.id, e.target.value);
 
-  obj = { ...obj, [e.target.id]: e.target.value };
+  if (!errorObj[`${e.target.id}-err`]) {
+    obj = { ...obj, [e.target.id]: e.target.value };
+  }
+
+  console.log(obj);
 
   // const fullnamee = document.getElementById("fullname").value;
   // const emaill = document.getElementById("email").value;
@@ -61,8 +66,27 @@ formsubmit.addEventListener("submit", submit);
 //  getQuerySelectorAll()
 //  getElementsByTagName()
 
-const handleBlur = (event) => {
-  console.log("blur", event.target.value);
-  // if (!e.target.value) {
-  // }
+const handleBlur = (e) => {
+  const fullnameErr = document.getElementById("fullanme-err");
+  const emailErr = document.getElementById("email-err");
+
+  const { id } = e.currentTarget;
+  const { value } = e.target;
+
+  if (id === "fullname") {
+    if (value === "") {
+      errorObj = { ...errorObj, [id]: "Fullname is required" };
+    } else {
+      errorObj = { ...errorObj, [id]: "" };
+    }
+    fullnameErr.innerText = errorObj[id];
+  }
+  if (id === "email") {
+    if (value === "") {
+      errorObj = { ...errorObj, [id]: "Email is required" };
+    } else {
+      errorObj = { ...errorObj, [id]: "" };
+    }
+    emailErr.innerText = errorObj[id];
+  }
 };
