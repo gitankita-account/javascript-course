@@ -25,16 +25,18 @@
           placeholder="Please enter your name"
         />
         <br />
+        <span style="color: red" id="fullanme-err"></span>
         <br />
         <input
           type="email"
           onchange="handleChange(event)"
+          onblur="handleBlur(event)"
           id="email"
           placeholder="Please enter your email id"
         />
 
         <br />
-        <span style="color: red">this field is required</span>
+        <span style="color: red" id="email-err"></span>
         <br />
         <input
           type="password"

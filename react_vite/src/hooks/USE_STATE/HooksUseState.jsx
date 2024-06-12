@@ -1,17 +1,12 @@
 import { useState } from "react";
-
+import { Button } from "@mui/material";
 function HooksUseState() {
   //   let count = 0;
 
   const [count, setCount] = useState(0);
   const [fullname, setFullname] = useState("");
   const [isFullname, setIsFullNameDisplay] = useState(false);
-  const [user, setUser] = useState({
-    fullname: "",
-    mobile: "",
-    password: "",
-    email: "",
-  });
+  
   const stateHandler = () => {
     setCount(count + 10);
     console.log(count);
@@ -37,7 +32,10 @@ function HooksUseState() {
           placeholder="Please enter your name"
           onChange={changehandler}
         />
-        <button onClick={saubmitHandler}>Submit</button>
+
+        <Button variant="contained" onClick={saubmitHandler}>
+          Submit
+        </Button>
       </form>
       <div>
         {isFullname ? (
