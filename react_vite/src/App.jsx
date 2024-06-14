@@ -1,6 +1,7 @@
 import "./assets/style/App.css";
 import EmployeeData from "./components/props/EmployeeData";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-tooltip/dist/react-tooltip.css'
 // import ArrayDataDisplay from "./components/basic-component/ArrayDataDisplay";
 // import ParentComponent from "./components/props/ParentComponent";
 import HooksUseState from "./hooks/USE_STATE/HooksUseState";
