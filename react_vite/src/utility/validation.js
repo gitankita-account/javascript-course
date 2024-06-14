@@ -30,5 +30,27 @@ export function validateFunction(inputid, value) {
     }
   }
 
+  //   email validation
+  if (inputid === "phone") {
+    if (value === "") {
+      error[inputid] = `${inputid} is required`;
+    } else if (!mobileRegEx.test(value)) {
+      error[inputid] = `Please enter valid ${inputid}`;
+    } else {
+      error[inputid] = "";
+    }
+  }
+
+  //   email validation
+  if (inputid === "password") {
+    if (value === "") {
+      error[inputid] = `${inputid} is required`;
+    } else if (!passwordRegEx.test(value)) {
+      error[inputid] = `Please enter valid ${inputid}`;
+    } else {
+      error[inputid] = "";
+    }
+  }
+
   return error;
 }
