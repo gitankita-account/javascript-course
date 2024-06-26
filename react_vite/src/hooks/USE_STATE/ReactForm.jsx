@@ -17,6 +17,8 @@ function ReactForm() {
     password: "",
   });
 
+  const [isDataDisplay, setIsDataDisplay] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -35,7 +37,7 @@ function ReactForm() {
     let obj = {};
     const { fullname, email, password, phone } = user;
     if (fullname && email && password && phone) {
-      console.log(user);
+      setIsDataDisplay(true);
     } else {
       const userKeys = Object.keys(user);
       console.log(userKeys);
@@ -122,6 +124,15 @@ function ReactForm() {
         </form>
         {/* <Tooltip id="my-tooltip" />; */}
       </Paper>
+
+      {isDataDisplay ? (
+        <Paper>
+          <h2>{user.fullname}</h2>
+          <h2>{user.email}</h2>
+          <h2>{user.phone}</h2>
+          <h2>{user.password}</h2>
+        </Paper>
+      ) : null}
     </>
   );
 }
