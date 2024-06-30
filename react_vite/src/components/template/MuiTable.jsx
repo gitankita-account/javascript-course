@@ -6,6 +6,7 @@ import {
   TableHead,
   TableBody,
   TablePagination,
+  Button,
 } from "@mui/material";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -30,6 +31,7 @@ const MuiTable = ({ posts }) => {
               <TableCell>User id</TableCell>
               <TableCell>Title</TableCell>
               <TableCell>Body</TableCell>
+              <TableCell>Button</TableCell>
             </TableRow>
           </TableHead>
 
@@ -44,6 +46,15 @@ const MuiTable = ({ posts }) => {
                       <TableCell>{post.userId}</TableCell>
                       <TableCell>{post.title}</TableCell>
                       <TableCell>{post.body}</TableCell>
+                      <TableCell sx={{ display: "flex", gap: "10px" }}>
+                        <Button variant="contained" color="error">
+                          Delete
+                        </Button>
+
+                        <Button variant="contained" color="primary">
+                          Edit
+                        </Button>
+                      </TableCell>
                     </TableRow>
                   );
                 })
