@@ -7,6 +7,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import HooksUseState from "./hooks/USE_STATE/HooksUseState";
 import ReactForm from "./hooks/USE_STATE/ReactForm";
 import HooksUseEffect from "./hooks/USE_EFFECT/HooksUseEffect";
+import HooksUseContext from "./hooks/USE_CONTEXT/HooksUseContext";
 function App() {
   const dt = new Date();
   let title = "";
@@ -38,7 +39,8 @@ function App() {
       <ParentComponent /> */}
       {/* <HooksUseState /> */}
       {/* <ReactForm /> */}
-      <HooksUseEffect />
+      {/* <HooksUseEffect /> */}
+      <HooksUseContext />
       {/* <h2>My name is {myname}</h2> */}
 
       {/* <button
