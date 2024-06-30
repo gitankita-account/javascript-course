@@ -1,6 +1,7 @@
 import { FormGroup, TextField } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MuiTable from "../../components/template/MuiTable";
 
 function HooksUseEffect() {
   const [users, setUsers] = useState([]);
@@ -8,7 +9,7 @@ function HooksUseEffect() {
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/${id}`
+        `https://jsonplaceholder.typicode.com/posts/${id}`
       );
       setUsers(res.data);
     } catch (error) {
@@ -21,11 +22,10 @@ function HooksUseEffect() {
 
     return () => {
       setUsers([]);
-      setId("");
     };
   }, [id]);
 
-  console.log(users);
+  // console.log(users);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -41,6 +41,8 @@ function HooksUseEffect() {
           onChange={handleChange}
         />
       </FormGroup>
+
+      <MuiTable posts={users} />
     </>
   );
 }
