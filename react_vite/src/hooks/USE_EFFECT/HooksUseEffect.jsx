@@ -3,10 +3,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MuiTable from "../../components/template/MuiTable";
 import Modals from "../../components/modals/Modals";
+import EditModal from "../../components/modals/EditModal";
 
 function HooksUseEffect() {
   const [users, setUsers] = useState([]);
   const [id, setId] = useState("");
+  const [isEdit, setIsEdit] = useState("");
   const [post, setPost] = useState({
     userId: 11,
     title: "",
@@ -40,13 +42,34 @@ function HooksUseEffect() {
 
   const postChange = (e) => {
     const { name, value } = e.target;
-    setPost({ ...post, [name]: value, id: users.length + 1 });
+    if (isEdit === "edit") {
+      setPost({ ...post, [name]: value });
+    } else {
+      setPost({ ...post, [name]: value, id: users.length + 1 });
+    }
   };
 
   const addPostHandler = () => {
     users.push(post);
     setUsers(users);
     setPost({ userId: 11, title: "", body: "" });
+  };
+
+  const editPostHandler = () => {
+   
+    const restData = users.map((user) => {
+      if (user.id === post.id) {
+        return post;
+      } else {
+        return user;
+      }
+    });
+    console.log(restData, "677");
+    setUsers(restData);
+  };
+
+  const fetchEditData = (editpost) => {
+    setPost(editpost);
   };
   return (
     <>
@@ -55,6 +78,15 @@ function HooksUseEffect() {
         postChange={postChange}
         addPostHandler={addPostHandler}
       />
+
+      {isEdit === "edit" && (
+        <EditModal
+          setIsEdit={setIsEdit}
+          post={post}
+          handleChange={postChange}
+          addPostHandler={editPostHandler}
+        />
+      )}
       <FormGroup>
         <TextField
           variant="outlined"
@@ -64,7 +96,11 @@ function HooksUseEffect() {
         />
       </FormGroup>
 
-      <MuiTable posts={users} />
+      <MuiTable
+        posts={users}
+        setIsEdit={setIsEdit}
+        fetchEditData={fetchEditData}
+      />
     </>
   );
 }

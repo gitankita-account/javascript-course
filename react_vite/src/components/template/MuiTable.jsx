@@ -11,7 +11,7 @@ import {
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const MuiTable = ({ posts }) => {
+const MuiTable = ({ posts, setIsEdit, fetchEditData }) => {
   const [rowsPerPage, setRowsPerPage] = useState(8);
   const [page, setPage] = useState(0);
   const onPageChangeHandler = (event, page) => {
@@ -51,7 +51,14 @@ const MuiTable = ({ posts }) => {
                           Delete
                         </Button>
 
-                        <Button variant="contained" color="primary">
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={() => {
+                            setIsEdit("edit");
+                            fetchEditData(post);
+                          }}
+                        >
                           Edit
                         </Button>
                       </TableCell>
