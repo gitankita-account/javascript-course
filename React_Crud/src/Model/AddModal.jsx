@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { Card, FormGroup, Paper } from "@mui/material";
 import PropTypes from "prop-types";
 
- function AddModal({add}) {
+function AddModal({ add, handleChange, handleBlur, handleAdd, addDataError }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -50,7 +50,7 @@ import PropTypes from "prop-types";
                   sx={{ width: 300, margin: "10px auto" }}
                   label="Please enter userid"
                   name="userId"
-                  value={addData.userId}
+                  value={add.userId}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   helperText={addDataError.userId || null}
@@ -62,8 +62,8 @@ import PropTypes from "prop-types";
                   variant="filled"
                   sx={{ width: 300, margin: "10px auto" }}
                   label="Please enter id"
-                  name="ID"
-                  value={addData.ID}
+                  name="id"
+                  value={add.id}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -75,11 +75,10 @@ import PropTypes from "prop-types";
                   sx={{ width: 300, margin: "10px auto" }}
                   label="Please enter title"
                   name="title"
-                  value={addData.title}
+                  value={add.title}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   helperText={addDataError.title || null}
-
                 />
               </FormGroup>
 
@@ -88,8 +87,8 @@ import PropTypes from "prop-types";
                   variant="filled"
                   sx={{ width: 300, margin: "10px auto" }}
                   label="Please enter Body"
-                  name="content"
-                  value={addData.content}
+                  name="body"
+                  value={add.body}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   helperText={addDataError.content || null}
@@ -100,15 +99,16 @@ import PropTypes from "prop-types";
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit" onClick={handleAdd}>Add</Button>
+          <Button type="submit" onClick={handleAdd}>
+            Add
+          </Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
   );
-
-  AddModal.propTypes = {
-    add: PropTypes.object,
-  };
 }
 
-export default AddModal
+AddModal.propTypes = {
+  add: PropTypes.object,
+};
+export default AddModal;

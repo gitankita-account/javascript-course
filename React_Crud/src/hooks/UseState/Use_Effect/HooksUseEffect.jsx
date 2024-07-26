@@ -22,14 +22,15 @@ function HooksUseEffect() {
   const [addData, setaddData] = useState({
     userId: "",
     title: "",
-    content: "",
+    body: "",
+    id: "",
   });
-  
+
   const [addDataError, setaddDataError] = useState({
     userId: "",
     title: "",
     content: "",
-  })
+  });
 
   const fetchData = async () => {
     try {
@@ -65,8 +66,8 @@ function HooksUseEffect() {
     setUsers(updatedData);
     console.log(updatedData, "deleted");
   };
-   
-// Add data code====================================================>
+
+  // Add data code====================================================>
   function addForm(inputid) {
     let error = {};
 
@@ -96,7 +97,6 @@ function HooksUseEffect() {
     return error;
   }
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setaddData({ ...addData, [name]: value });
@@ -108,19 +108,21 @@ function HooksUseEffect() {
     console.log(name, value);
     const error = addForm(name, value);
     console.log(error);
-  setaddDataError[{
-    ...addDataError, [name]: error[value]
-  }]
+    setaddDataError[
+      {
+        ...addDataError,
+        [name]: error[value],
+      }
+    ];
   };
 
-const handleAdd = (e) =>{
-  e.preventDefault();
-  users.push(addData);
-  setaddData("")
+  const handleAdd = (e) => {
+    e.preventDefault();
+    users.push(addData);
+    setaddData("");
+  };
 
-}
-
-    return (
+  return (
     <>
       <h2>Use Effect</h2>
       <br />
@@ -137,7 +139,13 @@ const handleAdd = (e) =>{
           // onChange={handleChange}
         ></TextField>
       </FormGroup>
-      <AddModal add = {addData} />
+      <AddModal
+        add={addData}
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleAdd={handleAdd}
+        addDataError={addDataError}
+      />
       <PaginationTable posts={users} handleDelete={handleDelete} />
     </>
   );
