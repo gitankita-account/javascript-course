@@ -1,4 +1,3 @@
-import React from "react";
 import ComponentB from "./ComponentB";
 
 const ComponentA = () => {
@@ -11,3 +10,4 @@ const ComponentA = () => {
 };
 
 export default ComponentA;
+

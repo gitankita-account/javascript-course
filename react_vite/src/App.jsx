@@ -8,6 +8,7 @@ import HooksUseState from "./hooks/USE_STATE/HooksUseState";
 import ReactForm from "./hooks/USE_STATE/ReactForm";
 import HooksUseEffect from "./hooks/USE_EFFECT/HooksUseEffect";
 import HooksUseContext from "./hooks/USE_CONTEXT/HooksUseContext";
+import Index from "./hooks/USE_MEMO_USECALLBACK";
 function App() {
   const dt = new Date();
   let title = "";
@@ -29,7 +30,7 @@ function App() {
   } else {
     title = "night";
   }
-  console.log(dt.getHours());
+  // console.log(dt.getHours());
 
   return (
     <div>
@@ -39,8 +40,9 @@ function App() {
       <ParentComponent /> */}
       {/* <HooksUseState /> */}
       {/* <ReactForm /> */}
-      {/* <HooksUseEffect /> */}
-      <HooksUseContext />
+      <HooksUseEffect />
+      {/* <HooksUseContext /> */}
+      {/* <Index /> */}
       {/* <h2>My name is {myname}</h2> */}
 
       {/* <button

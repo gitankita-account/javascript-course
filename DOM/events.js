@@ -81,7 +81,7 @@ const handleBlur = (e) => {
     }
     fullnameErr.innerText = errorObj[id];
   }
-  if (id === "email") {
+  if (id === "email") { 
     if (value === "") {
       errorObj = { ...errorObj, [id]: "Email is required" };
     } else {
