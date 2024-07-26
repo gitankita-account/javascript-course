@@ -1,0 +1,27 @@
+
+[
+  {
+    "std_id": 10,
+    "std_name": "Ayush",
+    "std_class": "12th",
+    "std_attendence": "Absent"
+  },
+  {
+    "std_id": 20,
+    "std_name": "Nandini",
+    "std_class": "10th",
+    "std_attendence": "Present"
+  },
+  {
+    "std_id": 30,
+    "std_name": "Saurabh",
+    "std_class": "11th",
+    "std_attendence": "Absent"
+  },
+  {
+    "std_id": 40,
+    "std_name": "Saloni",
+    "std_class": "12th",
+    "std_attendence": "Present"
+  }
+]
