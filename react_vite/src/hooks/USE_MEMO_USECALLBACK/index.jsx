@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import Title from "./Title";
 import Count from "./Count";
 import Buttons from "./Buttons";
@@ -15,13 +15,11 @@ export default function Index() {
     setAge(age + 1);
   }, [age]);
 
-  const isEligible = () => {
+  const isEligible = useMemo(() => {
     let i = 0;
-    while (i <= 2000) {
-      age >= 18;
-      i++;
-    }
-  };
+    while (i <= 2000000000) i++;
+    return age >= 18;
+  }, [age]);
 
   return (
     <>
@@ -29,7 +27,7 @@ export default function Index() {
       <Title title={"Age & salary"} />
       <Count count={salary} />
       <Buttons handleClick={incrementSalary}>Increment Salary</Buttons>
-      {isEligible() ? <h1>User is Eligible</h1> : <h1>User is not Eligible</h1>}
+      {isEligible ? <h1>User is Eligible</h1> : <h1>User is not Eligible</h1>}
       {/* Age */}
       <Count count={age} />
       <Buttons handleClick={incrementAge}>Increment Age</Buttons>

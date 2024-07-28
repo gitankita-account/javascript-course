@@ -9,6 +9,8 @@ import ReactForm from "./hooks/USE_STATE/ReactForm";
 import HooksUseEffect from "./hooks/USE_EFFECT/HooksUseEffect";
 import HooksUseContext from "./hooks/USE_CONTEXT/HooksUseContext";
 import Index from "./hooks/USE_MEMO_USECALLBACK";
+import HooksUseReducer from "./hooks/USE_REDUCER/HooksUseReducer";
+import HooksUseRef from "./hooks/USE_REF/HooksUseRef";
 function App() {
   const dt = new Date();
   let title = "";
@@ -40,9 +42,12 @@ function App() {
       <ParentComponent /> */}
       {/* <HooksUseState /> */}
       {/* <ReactForm /> */}
-      <HooksUseEffect />
+      {/* <HooksUseEffect /> */}
       {/* <HooksUseContext /> */}
       {/* <Index /> */}
+
+      {/* <HooksUseReducer /> */}
+      <HooksUseRef />
       {/* <h2>My name is {myname}</h2> */}
 
       {/* <button
