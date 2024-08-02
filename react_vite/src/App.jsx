@@ -11,6 +11,8 @@ import HooksUseContext from "./hooks/USE_CONTEXT/HooksUseContext";
 import Index from "./hooks/USE_MEMO_USECALLBACK";
 import HooksUseReducer from "./hooks/USE_REDUCER/HooksUseReducer";
 import HooksUseRef from "./hooks/USE_REF/HooksUseRef";
+import Router from "./routing";
+import "./assets/style/menu-bar.css";
 function App() {
   const dt = new Date();
   let title = "";
@@ -47,7 +49,7 @@ function App() {
       {/* <Index /> */}
 
       {/* <HooksUseReducer /> */}
-      <HooksUseRef />
+      {/* <HooksUseRef /> */}
       {/* <h2>My name is {myname}</h2> */}
 
       {/* <button
@@ -63,6 +65,7 @@ function App() {
 
         {" " + dt.getFullYear()}
       </p> */}
+      <Router />
     </div>
   );
 }
