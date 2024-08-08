@@ -1,5 +1,5 @@
 import { FormGroup, TextField } from "@mui/material";
-import axios from "axios";
+import { httpService } from "../../services";
 import { useEffect, useState } from "react";
 import MuiTable from "../../components/template/MuiTable";
 import Modals from "../../components/modals/Modals";
@@ -16,10 +16,10 @@ function HooksUseEffect() {
   });
   const fetchData = async () => {
     try {
-      const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts/${id}`
-      );
-      setUsers(res.data);
+      const res = await httpService.get(`/posts/${id}`);
+      console.log(res);
+
+      setUsers(res);
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +56,6 @@ function HooksUseEffect() {
   };
 
   const editPostHandler = () => {
-   
     const restData = users.map((user) => {
       if (user.id === post.id) {
         return post;
