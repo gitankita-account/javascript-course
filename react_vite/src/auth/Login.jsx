@@ -1,20 +1,18 @@
 import { Button, Card, FormGroup, Paper, TextField } from "@mui/material";
 import { useState } from "react";
-import { validateFunction } from "../../utility/validation";
-import { Link } from "react-router-dom";
+import { validateFunction } from "../utility/validation";
+import { Link, useNavigate } from "react-router-dom";
 
-function ReactForm() {
+function Login() {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
-    fullname: "",
     email: "",
-    phone: "",
     password: "",
   });
 
   const [userError, setUserError] = useState({
-    fullname: "",
     email: "",
-    phone: "",
     password: "",
   });
 
@@ -36,11 +34,22 @@ function ReactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let obj = {};
-    const { fullname, email, password, phone } = user;
-    if (fullname && email && password && phone) {
-      setIsDataDisplay(true);
-      localStorage.setItem("user", JSON.stringify(user)); // store user data into the localstorage
-      setUser({ fullname: "", email: "", password: "", phone: "" });
+    const { email, password } = user;
+    if (email && password) {
+      const userData = localStorage.getItem("user");
+      const parsedUsertData = JSON.parse(userData);
+
+      if (
+        email === parsedUsertData.email &&
+        password === parsedUsertData.password
+      ) {
+        localStorage.setItem("isAutenticated", "yes");
+        navigate("/hooks/usestate");
+      } else {
+        localStorage.setItem("isAutenticated", "no");
+        alert("Invalid email or password!");
+      }
+      setUser({ email: "", password: "" });
     } else {
       const userKeys = Object.keys(user);
       console.log(userKeys);
@@ -59,19 +68,6 @@ function ReactForm() {
         <form onSubmit={handleSubmit}>
           <FormGroup>
             <TextField
-              error={userError.fullname || false}
-              variant="outlined"
-              sx={{ width: 300, margin: "10px auto" }}
-              label="Please enter your name"
-              name="fullname"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={user.fullname}
-              helperText={userError.fullname || null}
-            />
-          </FormGroup>
-          <FormGroup>
-            <TextField
               error={userError.email || false}
               variant="outlined"
               sx={{ width: 300, margin: "10px auto" }}
@@ -83,19 +79,7 @@ function ReactForm() {
               helperText={userError.email || null}
             />
           </FormGroup>
-          <FormGroup>
-            <TextField
-              variant="outlined"
-              error={userError.phone || false}
-              sx={{ width: 300, margin: "10px auto" }}
-              label="Please enter your Phone"
-              name="phone"
-              value={user.phone}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              helperText={userError.phone || null}
-            />
-          </FormGroup>
+
           <FormGroup>
             <TextField
               error={userError.password || false}
@@ -121,17 +105,18 @@ function ReactForm() {
                 marginBottom: 2,
               }}
             >
-              Submit
+              Login
             </Button>
           </FormGroup>
           <span>
-            if you have already an acount <Link to={"/"}>Login</Link>
+            if you don't ave an account please{" "}
+            <Link to={"/signup"}>Signup</Link>
           </span>
         </form>
         {/* <Tooltip id="my-tooltip" />; */}
       </Paper>
-
-      {/* {isDataDisplay ? (
+      {/* 
+      {isDataDisplay ? (
         <Paper>
           <h2>{user.fullname}</h2>
           <h2>{user.email}</h2>
@@ -142,4 +127,4 @@ function ReactForm() {
     </>
   );
 }
-export default ReactForm;
+export default Login;

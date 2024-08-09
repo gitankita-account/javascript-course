@@ -8,21 +8,66 @@ import HooksUseContext from "../hooks/USE_CONTEXT/HooksUseContext";
 import HooksUseReducer from "../hooks/USE_REDUCER/HooksUseReducer";
 import HooksUseState from "../hooks/USE_STATE/HooksUseState";
 import SettingMenuBar from "../components/menu-bar/setting-menu-bar";
+import Login from "../auth/Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function Router() {
   return (
     <BrowserRouter>
       {/* <MenuBar /> */}
       <Routes>
-        <Route path="/" element={<ReactForm />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<ReactForm />} />
 
         {/* /hooks/ */}
-        <Route path="/hooks" element={<MenuBar />}>
-          <Route path="usestate" element={<HooksUseState />} />
-          <Route path="useref" element={<HooksUseRef />} />
-          <Route path="posts" element={<HooksUseEffect />} />
-          <Route path="usecontext" element={<HooksUseContext />} />
-          <Route path="usereducer" element={<HooksUseReducer />} />
+        <Route
+          path="/hooks"
+          element={
+            <ProtectedRoute>
+              <MenuBar />
+            </ProtectedRoute>
+          }
+        >
+          <Route
+            path="usestate"
+            element={
+              <ProtectedRoute>
+                <HooksUseState />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="useref"
+            element={
+              <ProtectedRoute>
+                <HooksUseRef />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="posts"
+            element={
+              <ProtectedRoute>
+                <HooksUseEffect />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="usecontext"
+            element={
+              <ProtectedRoute>
+                <HooksUseContext />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="usereducer"
+            element={
+              <ProtectedRoute>
+                <HooksUseReducer />
+              </ProtectedRoute>
+            }
+          />
         </Route>
 
         {/* settings */}
