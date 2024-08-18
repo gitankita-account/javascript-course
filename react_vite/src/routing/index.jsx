@@ -10,6 +10,7 @@ import HooksUseState from "../hooks/USE_STATE/HooksUseState";
 import SettingMenuBar from "../components/menu-bar/setting-menu-bar";
 import Login from "../auth/Login";
 import ProtectedRoute from "./ProtectedRoute";
+import Count from "../reduxComponent/Count";
 
 export default function Router() {
   return (
@@ -69,11 +70,11 @@ export default function Router() {
             }
           />
         </Route>
-
         {/* settings */}
         <Route path="/settings" element={<SettingMenuBar />}>
           <Route path="change-password" element={<h2>Change Password</h2>} />
           <Route path="view-profile" element={<h2>View Profile</h2>} />
+          <Route path="redux-count" element={<Count />} />
         </Route>
       </Routes>
     </BrowserRouter>

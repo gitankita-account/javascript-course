@@ -12,6 +12,9 @@ const SettingMenuBar = () => {
           <Link to={"/settings/view-profile"}>
             <li>View Profile</li>
           </Link>
+          <Link to={"/settings/redux-count"}>
+            <li>Redux Count</li>
+          </Link>
 
           <Link to={"/hooks/usestate"}>
             <li>Redirect to Hooks</li>

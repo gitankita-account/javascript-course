@@ -13,6 +13,8 @@ import HooksUseReducer from "./hooks/USE_REDUCER/HooksUseReducer";
 import HooksUseRef from "./hooks/USE_REF/HooksUseRef";
 import Router from "./routing";
 import "./assets/style/menu-bar.css";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 function App() {
   const dt = new Date();
   let title = "";
@@ -65,7 +67,9 @@ function App() {
 
         {" " + dt.getFullYear()}
       </p> */}
-      <Router />
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </div>
   );
 }
