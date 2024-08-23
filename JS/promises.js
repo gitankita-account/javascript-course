@@ -3,11 +3,9 @@
 
 const pr = new Promise((resolve, reject) => {
   let user = {};
-
-  setTimeout(() => {
-    user.city = "Noida";
-    reject("there is some error");
-  }, 2000);
+  
+  user.city = "Noida";
+  reject("there is some error");
 
   //   console.log(user);
 });
@@ -55,4 +53,4 @@ const fetchData = async () => {
 
 fetchData();
 
-
+console.log("90");
