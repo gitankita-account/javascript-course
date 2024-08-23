@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import MuiTable from "../../components/template/MuiTable";
 import Modals from "../../components/modals/Modals";
 import EditModal from "../../components/modals/EditModal";
+import { fetchData } from "../../redux/actions/fetchActions";
+import { useDispatch, useSelector } from "react-redux";
 
 function HooksUseEffect() {
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+  // const [users, setUsers] = useState([]);
   const [id, setId] = useState("");
   const [isEdit, setIsEdit] = useState("");
   const [post, setPost] = useState({
@@ -14,22 +17,28 @@ function HooksUseEffect() {
     title: "",
     body: "",
   });
-  const fetchData = async () => {
-    try {
-      const res = await httpService.get(`/posts/${id}`);
-      console.log(res);
 
-      setUsers(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const users = useSelector((state) => {
+    console.log(state, "useEffect");
+    return state.fetchReducer.data;
+  });
+
+  // const fetchData = async () => {
+  //   try {
+  //     const res = await httpService.get(`/posts/${id}`);
+  //     console.log(res);
+
+  //     setUsers(res);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
-    fetchData();
+    dispatch(fetchData(id));
 
     return () => {
-      setUsers([]);
+      // setUsers([]);
     };
   }, [id]);
 
@@ -51,7 +60,7 @@ function HooksUseEffect() {
 
   const addPostHandler = () => {
     users.push(post);
-    setUsers(users);
+    // setUsers(users);
     setPost({ userId: 11, title: "", body: "" });
   };
 
@@ -64,7 +73,7 @@ function HooksUseEffect() {
       }
     });
     console.log(restData, "677");
-    setUsers(restData);
+    // setUsers(restData);
   };
 
   const fetchEditData = (editpost) => {
