@@ -37,6 +37,10 @@ const MenuBar = () => {
             <li>UseRef</li>
           </CustomNavLink>
 
+          <CustomNavLink to={"/hooks/class_component"}>
+            <li>Class Component</li>
+          </CustomNavLink>
+
           <CustomNavLink to={"/settings/change-password"}>
             Redirect to settings
           </CustomNavLink>

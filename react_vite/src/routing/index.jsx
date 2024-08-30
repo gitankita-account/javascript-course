@@ -11,6 +11,7 @@ import SettingMenuBar from "../components/menu-bar/setting-menu-bar";
 import Login from "../auth/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import Count from "../reduxComponent/Count";
+import ClassComponent from "../classComponents/ClassComponent";
 
 export default function Router() {
   return (
@@ -66,6 +67,14 @@ export default function Router() {
             element={
               <ProtectedRoute>
                 <HooksUseReducer />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="class_component"
+            element={
+              <ProtectedRoute>
+                <ClassComponent />
               </ProtectedRoute>
             }
           />
